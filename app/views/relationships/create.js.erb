@@ -1,0 +1,6 @@
+$("#relationship_followings").html("<%= j(render 'relationships/followings_counter', user: @user) %>");
+$("#relationship_followers").html("<%= j(render 'relationships/followers_counter', user: @user) %>");
+$("#relationship-btn_info").html("<%= j(render 'relationships/btn', user: @user, options: { class: "" }) %>");
+$("#relationship-btn_index").html("<%= j(render 'relationships/btn', user: @user, options: { class: "follow-link" }) %>");
+$("#relationship_follow").html("<%= j(render 'relationships/follow_counter', user: @user) %>");
+$("#relationship_follower").html("<%= j(render 'relationships/follower_counter', user: @user) %>");

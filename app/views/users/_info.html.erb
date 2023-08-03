@@ -8,19 +8,19 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
-  <tr>
-    <th>follows</th>
-    <th><%= link_to user.followings.count, user_followings_path(user) %></th>
+  <tr id="relationship_follow">
+    <%= render 'relationships/follow_counter', user: user %>
   </tr>
-  <tr>
-    <th>followers</th>
-    <th><%= link_to user.followers.count, user_followers_path(user) %></th>
+  <tr id="relationship_follower">
+    <%= render 'relationships/follower_counter', user: user %>
   </tr>
 </table>
 　
 <div class='row'>
   <% if current_user != user %>
-    <td><%= render "relationships/btn", user: user, options: { class: "" } %></td>
+    <td id="relationship-btn_info">
+      <%= render 'relationships/btn', user: user, options: { class: "" } %>
+    </td>
   <% else %>
     <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
       <i class="fas fa-user-cog"></i>
