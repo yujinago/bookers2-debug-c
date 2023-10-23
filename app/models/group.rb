@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-  has_many :group_users, depndent: :destroy
+  has_many :group_users, dependent: :destroy
   belongs_to :owner, class_name: "User"
   
   validates :name, presence: true
