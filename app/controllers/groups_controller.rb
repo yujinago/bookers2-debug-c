@@ -8,18 +8,17 @@ class GroupsController < ApplicationController
   def index
     @book = Book.new
     @groups = Group.all
-    # @user = User.find(current_user.id)
   end
 
   def show
     @book = Book.new
     @group = Group.find(params[:id])
-    # @user = User.find(current_user.id)
   end
   
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
+    @group.users << current_user
     if @group.save
       redirect_to groups_path
     else
